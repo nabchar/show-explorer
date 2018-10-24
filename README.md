@@ -1,21 +1,83 @@
 # VICE Front End Coding Exercise
 
-Below is a HTML/CSS/JS exercise that involves building out a web component, or single page app, to navigate through various VICE shows.
+This repository contains code for a simple single page app that exposes a UI for exploring VICE shows.
 
-- Use HTML5 semantic markup elements.
-- Write your CSS using a preprocessor (Sass, LESS or Stylus).
-- Use React or Vue.js as your JavaScript library.
-- Bonus: Use a module bundler or task manager such as Webpack, Gulp or Grunt to compile static assets. Along with this, include a linter for your code (ESLint, Prettier, ect.).
+## Quick Start
+This project requires [Node JS](https://nodejs.org/en/) to be installed locally.
 
-## Exercise
-In index.html, rebuild the mocks in the designs folder in semantic HTML, CSS and JS. The designs represent layouts in a smaller screen and a larger screen. It is not 2 pages. Feel free to diverge from the designs and apply your own creativity. The goal is to build a simple UI that allows users to navigate between various shows while displaying the corresponding meta data for each.
+1. Download/clone this repository locally, and run `npm install` from within.
+2. Run `npm run dev`
+3. A new tab in your browser should automatically open, pointing to http://localhost:8888
 
-## Specs:
-- There are 10 shows, each with an id, title, episode count, and cover art. (see shows.json).
-- Load the data using AJAX from `http://localhost:3000/shows` (you can start the server up using `yarn start-api`)
-- When landing on the page initially, the first show should be selected.
-- When clicking through the show selector the single show image, title, and episode count also updates.
-- The url updates with the currently selected show. (http://{{page_url}}?id=b2, if second show is selected)
-- A url with http://{{page_url}}?id=b2 should have the second show selected on page reload.
-- When clicking between shows, hitting “Back” and “Forward” on the browser will also update the url, cover image, title, and episode count according to the show id.
-- The minimum width of the screen is 320px. The horizontal breakpoint is at 980px. Build with a mobile first approach.
+## Testing
+The project contains support for tests using a combination of tools including Mocha, Chai, Sinon, and Enzyme.
+
+To run these tests, simply enter the following command:
+- `npm run test:unit`
+
+If you would like to watch for changes, you can also run `npm run test:unit:watch`.
+
+## Technologies Used:
+- React: main JS library
+  - React Router: client side routing
+- SCSS: styling
+  - CSS Grid: layouts
+  - Flexbox
+  - FontAwesome: icons
+- Babel: ES6+ transpiling
+  - Async/Await
+- Webpack: bundling of static assets
+- ESLint: linting
+- Mocha, Chai, Sinon, Enzyme: testing
+  - [fetch-mock](https://github.com/wheresrhys/fetch-mock): lightweight library to mock fetch API
+
+## Structure
+The client side code for this project can be found within the `client` subdirectory.
+
+```shell
+|-- client
+    |-- components/        # React components
+    |-- styles/            # SCSS files
+    |-- index.js           # entry file
+    |-- index.html
+```
+
+**React**
+I've organized React components into their own subdirectories containing the component itself, as well as a spec for that component.
+
+For example:
+```shell
+|-- client
+    |-- components/
+       |-- App/
+          |-- App.jsx
+          |-- App.spec.js
+```
+
+I believe this type of file structure allows for a basic form of documentation for each component.
+
+
+**Components**
+```shell
+|-- client
+    |-- components/
+       |-- Root/              # Entry component for the whole app, renders a Router with the main index route.
+       |-- App/               # Wrapper for main presentation components Nav and Show.
+       |-- Nav/               # A recirc of tiled links to VICE shows
+       |-- Show/              # A components that renders a Tile, fetching and passing relevant props for a particular Show.
+       |-- Tile/              # An abstraction of a box with an image and some text; for possible reuse as the app scales.
+       |-- ErrorHandler.jsx   # A utility component for error handling
+```
+
+**Styling**
+```shell
+|-- client
+    |-- styles/
+       |-- application.scss        # contains imports and component specific styling
+       |-- layout.scss             # defines grid layout for the app
+       |-- mixins.scss             # utility mixins, specifically for media queries
+       |-- reset.scss              # basic CSS reset
+       |-- variables.scss          # color and size variables
+```
+For this project, given it's limited scope and size, I chose to keep component specific styling rules separate from component subdirectories. I would anticipate that as the application began to grow and more components were added, it would make sense to move to a CSS in JS / style component approach.
+  

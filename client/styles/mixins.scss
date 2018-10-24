@@ -1,0 +1,12 @@
+// MIXINS ----------------------------------------------------------------------
+@mixin horizontal {
+  @media (min-width: #{$horizontal-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

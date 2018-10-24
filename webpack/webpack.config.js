@@ -21,16 +21,22 @@ module.exports = {
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        loaders: [
-          'file-loader',
-        ],
+        test: /\.(png|jpg)$/,
+        include: path.join(parentDir, 'images/'),
+        options: {
+          name: '[path][name].[ext]',
+          publicPath: 'images/',
+        },
+        loader: 'file-loader',
       },
     ],
   },
+  devtool: 'source-map',
   output: {
     path: `${parentDir}/dist`,
-    filename: 'bundle.js',
+    filename: '[name].js',
+    chunkFilename: '[name]-[id].js',
+    publicPath: '/',
   },
   devServer: {
     contentBase: parentDir,
@@ -38,6 +44,9 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
+    alias: {
+      public: path.join(parentDir, 'images/'),
+    },
     extensions: [
       '.js', '.jsx',
     ],

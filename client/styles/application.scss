@@ -1,0 +1,136 @@
+// IMPORTS ---------------------------------------------------------------------
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "layout";
+
+// BASE ------------------------------------------------------------------------
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  font-family: arial;
+}
+
+a {
+  color: $accent-color;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+// HEADER ----------------------------------------------------------------------
+.header {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  padding-top: 20px;
+  border-top: 1px solid $border-color;
+
+  @include horizontal {
+    padding-top: 0;
+    padding-bottom: 20px;
+    border-top: none;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  margin-left: 30px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: #fff;
+  min-width: 60px;
+  min-height: 60px;
+
+
+  @include horizontal {
+    min-width: 70px;
+    min-height: 70px;
+  }
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  background-color: $border-color;
+}
+
+// CONTENT ---------------------------------------------------------------------
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  a {
+    min-width: 20px;
+  }
+}
+
+.next, .previous {
+  font-size: 24px;
+  @include horizontal {
+    font-size: 48px;
+  }
+}
+
+.next {
+  margin-left: 20px;
+  @include horizontal {
+    margin-left: 40px;
+  }
+}
+
+.previous {
+  margin-right: 20px;
+  @include horizontal {
+    margin-right: 40px;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.meta {
+  font-size: 11px;
+  font-weight: bold;
+  color: lightgray;
+  text-transform: uppercase;
+}
+
+.title, .meta {
+  padding-top: 10px;
+}
+
+// ERROR HANDLER ---------------------------------------------------------------
+.message {
+  padding-bottom: 20px;
+  text-align: center;
+  a {
+    color: $accent-color;
+    line-height: 20px;
+    font-weight: 700;
+    margin: 0 6px;
+  }
+}

@@ -1,0 +1,33 @@
+// GRID LAYOUT -----------------------------------------------------------------
+.grid-container {
+  display: grid;
+  min-height: 97%;
+  padding: 20px 20px 0 20px;
+  grid-template-rows: 60% 40%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+     "c c c c c c c c c c c c"
+     "h h h h h h h h h h h h";
+
+  @include horizontal {;
+    grid-template-rows: 20% 80%;
+    grid-gap: 20px;
+    grid-template-areas:
+    ". . h h h h h h h h . ."
+    "c c c c c c c c c c c c";
+  }
+
+  @include desktop {
+    grid-template-areas:
+    ". . . h h h h h h . . ."
+    "c c c c c c c c c c c c";
+  }
+}
+
+.header {
+  grid-area: h;
+}
+
+.content {
+  grid-area: c;
+}
