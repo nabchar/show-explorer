@@ -94,11 +94,13 @@ Possible future improvements include:
 
 **Main Content**
 In addition to displaying the image of the show and it's meta data, I've added two navigation arrows to easily allow the user to explore more.
+
 Possible future improvements include:
 - Clicking on these clicks sometimes results in FOUC, so perhaps consider adding a styling or a loader to address.
 
 **Layout**
 CSS Grid makes it easy to keep the Layout fluid and responsive.
+
 Possible future improvements include:
 - The `horizontal` breakpoint included in the design specs leaves the navigation a bit too large for my liking on a tablet view. I'd likely add a tablet specific breakpoint to configure things more appropriately to each screen size.
 
