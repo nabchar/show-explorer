@@ -80,4 +80,29 @@ I believe this type of file structure allows for a basic form of documentation f
        |-- variables.scss          # color and size variables
 ```
 For this project, given it's limited scope and size, I chose to keep component specific styling rules separate from component subdirectories. I would anticipate that as the application began to grow and more components were added, it would make sense to move to a CSS in JS / style component approach.
-  
+
+## UI
+I've largely followed the designs, while adding a few unique components.
+
+**Navigation**
+I envisoned the tiled navigation component as a tool for exploring different VICE shows easily by name.
+
+Possible future improvements include:
+- centering view on tile that is currently selected when you first land on the page
+- enable infinite scroll
+-
+
+**Main Content**
+In addition to displaying the image of the show and it's meta data, I've added two navigation arrows to easily allow the user to explore more.
+Possible future improvements include:
+- Clicking on these clicks sometimes results in FOUC, so perhaps consider adding a styling or a loader to address.
+
+**Layout**
+CSS Grid makes it easy to keep the Layout fluid and responsive.
+Possible future improvements include:
+- The `horizontal` breakpoint included in the design specs leaves the navigation a bit too large for my liking on a tablet view. I'd likely add a tablet specific breakpoint to configure things more appropriately to each screen size.
+
+## Error Handling
+I've made use of React 16's new `componentDidCatch` lifecycle method to streamline user experience and handle possible edge cases.
+
+For example, try navigating to `http://localhost:8888/?id=100`. Previously, this invalid query string would have unmounted the entire application. Now, we can catch that error and render as silly, but useful error component that allows the user to navigate back to more useful content.

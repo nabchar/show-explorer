@@ -10,7 +10,7 @@
      "h h h h h h h h h h h h";
 
   @include horizontal {;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 30% 70%;
     grid-gap: 20px;
     grid-template-areas:
     ". . h h h h h h h h . ."
@@ -26,8 +26,12 @@
 
 .header {
   grid-area: h;
+  @include horizontal {
+    align-self: center;
+  }
 }
 
 .content {
   grid-area: c;
+  align-self: center;
 }

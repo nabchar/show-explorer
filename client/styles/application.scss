@@ -29,7 +29,6 @@ a {
   border-top: 1px solid $border-color;
 
   @include horizontal {
-    padding-top: 0;
     padding-bottom: 20px;
     border-top: none;
     border-bottom: 1px solid $border-color;
