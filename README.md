@@ -1,4 +1,4 @@
-# VICE Front End Coding Exercise
+# Show Explorer
 
 This repository contains code for a simple single page app that exposes a UI for exploring VICE shows.
 
